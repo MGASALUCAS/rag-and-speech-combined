@@ -84,6 +84,8 @@ def speech_input():
         return jsonify({'error': str(e)})
 
 
+# proj-OAmY5Ye2NyU8K0JLHevgT3BlbkFJfxKRG7cCh0EGHROje9q0
+
 @app.route('/')
 def index():
     welcome_message = "Welcome, this is University of Dar es Salaam co i ct reception. Please click the speaker and tell me what you need."
@@ -131,4 +133,6 @@ def download_file(filename):
     return send_file(filename, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
+
