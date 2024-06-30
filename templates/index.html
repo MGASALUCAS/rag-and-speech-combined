@@ -1,0 +1,506 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Receptionist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-message">
+            <h1>Welcome</h1>
+            <p>{{ welcome_message }}</p>
+            <audio controls autoplay>
+                <source src="{{ audio_file_path }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div id="speaker" class="speaker"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>AI Receptionist</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}">
+
+
+  <!-- Main CSS File -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+          <a href="#" class="logo d-flex align-items-center me-auto">
+            <img src="static/img/loh.jpg" alt="" height="200" width="50">
+            <h1 class="sitename">AI Receptionist</h1>
+          </a>
+    
+          <style>
+            .navmenu {
+              display: flex;
+              justify-content: center; /* Center items horizontally */
+            }
+            
+            .navmenu ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              display: flex;
+            }
+            
+            .navmenu ul li {
+              margin-right: 20px; /* Adjust as needed */
+            }
+            
+            .navmenu ul li:last-child {
+              margin-right: 0;
+            }
+          </style>
+          
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="#services">USER GUIDE</a></li>
+              <li><a href="#contact">HUMAN CONTACT</a></li>
+              <li><a href="#featured-services">USER INFORMATION</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+          
+    
+          <a class="btn-getstarted" id="speech-input" href="#featured-services">Get Started</a>
+    
+        </div>
+      </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+      <div class="hero-bg">
+        <!-- <img src="assets/img/hero-bg-light.webp" alt=""> -->
+        <img src="{{ url_for('static', filename='img/hero-bg-light.webp') }}"  alt="">
+
+      </div>
+      <div class="container text-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 data-aos="fade-up" class="">Welcome to <span>AI - Based COICT Receptionist</span></h1>
+          <p data-aos="fade-up" data-aos-delay="100" class="">Quickly I'm your assistant now and set the stage for to get all information about the college.<br></p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="#featured-services" id="speech-input" class="btn-get-started">Get Started</a>
+            <!-- <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Avatar Demo</span></a> -->
+          </div>
+          <!-- <img src="assets/img/hero-services-img.webp" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300"> -->
+          <img src="{{ url_for('static', filename='img/hero-services-img.webp') }}" class="img-fluid hero-img" alt="" data-aos="zoom-out" data-aos-delay="300">
+
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Staff information</a></h4>
+                <p class="description">Unlock the gateway to CoICT's diverse workforce. Dive into profiles, expertise, and contact information of our dedicated staff members, ensuring seamless communication and collaboration.</p>
+            </div>
+            </div>
+          </div>
+          <!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">College Updates</a></h4>
+                <p class="description">Stay ahead of the curve with the latest news, events, and developments from CoICT. From academic announcements to groundbreaking research discoveries, our updates keep you informed and engaged.</p>
+            </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-4 col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item d-flex">
+              <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+              <div>
+                <h4 class="title"><a href="#" class="stretched-link">Students queries</a></h4>
+                <p class="description">Empower your educational journey with quick and efficient resolution of queries. From course registration to academic support, our responsive system ensures clarity and support every step of the way.</p>
+            </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+      <!-- The functionality to make ASR automated -->
+
+      <div class="container">
+        <h1 class="text-center mt-5">Click 'Start' and Let Your Words Take Flight!</h1>
+        <div class="form-group">
+          <textarea id="textbox" rows="6" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <button id="start-btn"  class="btn btn-danger btn-block">Start</button>
+          <p id="instructions">Press the Start button</p>
+        </div>
+      </div>
+  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+                var speechRecognition = window.webkitSpeechRecognition
+                var recognition = new speechRecognition()
+                var textbox = $("#textbox")
+                var instructions = $("#instructions")
+                var content = ''
+                recognition.continuous = true
+                // recognition is started
+                recognition.onstart = function() {
+                instructions.text("Please Start Talking, I'm listerning.")
+
+                }
+                recognition.onspeechend = function() {
+                instructions.text("No Activity")
+                }
+                recognition.onerror = function() {
+                instruction.text("Try Again")
+
+                }
+                recognition.onresult = function(event) {
+                var current = event.resultIndex;
+                var transcript = event.results[current][0].transcript
+                content += transcript
+                textbox.val(content)
+                }
+                $("#start-btn").click(function(event) {
+                    content = '';
+                    recognition.start();
+                    setTimeout(function() {
+                    if (recording) {
+                        recognition.stop();
+                        sendRecording(content);
+                        instructions.text("Recording stopped after 20 seconds.");
+                        recording = false;
+                    }
+                    }, 40000); // 40 seconds
+                });
+                textbox.on('input', function() {
+                content = $(this).val()
+                })
+
+                // Function to send recording to Flask backend
+                function sendRecording(content) {
+                // Send 'content' to Flask backend using AJAX
+                $.ajax({
+                    url: " http://127.0.0.1:5000/send-recording",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ content: content }),
+                    success: function(response) {
+                    console.log("Recording sent to Flask backend");
+                    // Handle success response if needed
+                    },
+                    error: function(xhr, status, error) {
+                    console.error("Error sending recording:", error);
+                    // Handle error if needed
+                    }
+                });
+                }
+
+      </script>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>User Guide</h2>
+        <p>Performance of the AI receptionist based on your input, It is encouraged to speak loudly with proper english pronounciation to be easily understandable</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-5">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <i class="bi bi-activity icon"></i>
+              <div>
+                <h3>Use Structured Commands</h3>
+                <p>Provide commands or inquiries in a structured manner. Start with a clear action verb followed by relevant details. For example, "Book a meeting with Dr. Smith for tomorrow."</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <i class="bi bi-broadcast icon"></i>
+              <div>
+                <h3>Provide Context</h3>
+                <p>When asking questions or providing instructions, provide context to help the AI receptionist understand your request better. Include relevant information such as location, time, or specific preferences.</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <i class="bi bi-easel icon"></i>
+              <div>
+                <h3>Be Patient and Understanding</h3>
+                <p>AI technology continuously improves with usage and feedback. Be patient and understanding, especially if the AI receptionist requires clarification or makes occasional errors.</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item item-red position-relative">
+              <i class="bi bi-bounding-box-circles icon"></i>
+              <div>
+                <h3>Speak Clearly and Pronounce Properly</h3>
+                <p>For optimal performance, speak clearly and use proper English pronunciation. Enunciate words to ensure they are easily understood by the AI receptionist.</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item item-indigo position-relative">
+              <i class="bi bi-calendar4-week icon"></i>
+              <div>
+                <h3>Ensure Security and Privacy</h3>
+                <p>Rest assured that your interactions with the AI receptionist are secure and private. We prioritize the confidentiality of your information and adhere to strict security protocols to safeguard your data.</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item item-pink position-relative">
+              <i class="bi bi-chat-square-text icon"></i>
+              <div>
+                <h3>Provide Feedback</h3>
+                <p>Your feedback is valuable in improving the AI receptionist's performance. If you encounter any issues or have suggestions for improvement, please provide feedback to help us enhance your experience.</p>
+                <a href="service-details.html" class="read-more stretched-link">Learn More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Human Contact</h2>
+        <p>In the event of extreme agency and you need human assistant, get human connection with contacts below</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <p>Block A, Adminsttaion, Flow 1</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-telephone"></i>
+              <h3>Call Us</h3>
+              <p>+255748988765</p>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope"></i>
+              <h3>Email Us</h3>
+              <p>secretary@udsm.ac.tz</p>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Quick Guide</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Block A</p>
+            <p>Adminsttaion, Flow 1</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+255748988765</span></p>
+            <p><strong>Email:</strong> <span>secretary@udsm.ac.tz</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About receptionist</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Staff Information</a></li>
+            <li><a href="#">College Updates</a></li>
+            <li><a href="#">Students Queries</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to these receptionist and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">University of Dar es salaam</strong><span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed with love by <a href="#">ANGELINA ANATOLY </a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+  
+
+  <!-- Main JS File -->
+  <!-- <script src="assets/js/main.js"></script> -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  <script>
+        document.getElementById("start-btn").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the default behavior of the link
+            
+            // Send a POST request to Flask
+            fetch('/speech-input', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data); // Output the response from Flask (if needed)
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+
+  </script>
+
+</body>
+
+</html>
