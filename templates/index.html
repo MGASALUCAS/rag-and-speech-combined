@@ -1,28 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Receptionist</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <div class="welcome-message">
-            <h1>Welcome</h1>
-            <p>{{ welcome_message }}</p>
-            <audio controls autoplay>
-                <source src="{{ audio_file_path }}" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <div id="speaker" class="speaker"></div>
-        </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html> -->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>AI Receptionist</title>
+  <title>COICT AI Receptionist</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -63,7 +38,7 @@
     
           <a href="#" class="logo d-flex align-items-center me-auto">
             <img src="static/img/loh.jpg" alt="" height="200" width="50">
-            <h1 class="sitename">AI Receptionist</h1>
+            <h1 class="sitename">COICT AI Receptionist</h1>
           </a>
     
           <style>
@@ -114,7 +89,7 @@
       </div>
       <div class="container text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 data-aos="fade-up" class="">Welcome to <span>AI - Based COICT Receptionist</span></h1>
+          <h1 data-aos="fade-up" class="">Welcome to <span>COICT AI Receptionist</span></h1>
           <p data-aos="fade-up" data-aos-delay="100" class="">Quickly I'm your assistant now and set the stage for to get all information about the college.<br></p>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="#featured-services" id="speech-input" class="btn-get-started">Get Started</a>
@@ -180,7 +155,9 @@
         </div>
         <div class="form-group">
           <button id="start-btn"  class="btn btn-danger btn-block">Start</button>
-          <p id="instructions">Press the Start button</p>
+          <br>
+          <button id="stop-btn" class="btn btn-secondary btn-block">Stop</button>
+          <p id="instructions">Press the Start button, and stop when you finish</p>
         </div>
       </div>
   
@@ -220,8 +197,13 @@
                         instructions.text("Recording stopped after 20 seconds.");
                         recording = false;
                     }
-                    }, 40000); // 40 seconds
+                    }, 20000); // 20 seconds
                 });
+                $("#stop-btn").click(function (event) {
+                recognition.stop();
+                instructions.text("Recording stopped by user.");
+                recording = false;
+              });
                 textbox.on('input', function() {
                 content = $(this).val()
                 })
